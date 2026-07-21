@@ -18,6 +18,19 @@ const rooms = [
   { name: 'Family Room', price: '₹3,000 – ₹3,500', image: '66ffbf3638e20af4.jpg', rates: ['3 Persons — ₹3,000', '4 Persons — ₹3,500'], wide: true },
 ]
 
+const experiences = [
+  { image: '0b9e665057e0f9a6.jpg', eyebrow: 'Discover', title: 'The Restaurant', copy: 'A refined dining room shaped around seasonal ingredients, warm service and relaxed evenings that are meant to linger.' },
+  { image: '997ffe4320e77b69.jpg', eyebrow: 'Experiences', title: 'Spa Center', copy: 'Restore your rhythm with considered treatments, quiet spaces and personalised rituals designed for deep relaxation.' },
+  { image: 'a9f4d0e211e34fd2.jpg', eyebrow: 'Modern', title: 'Fitness Center', copy: 'A light-filled training space with modern equipment, available throughout your stay for effortless daily movement.' },
+  { image: 'd3158d2fdaecfda2.jpg', eyebrow: 'Experiences', title: 'The Health Club & Pool', copy: 'Swim, reset and take time for yourself in our serene pool and private health club.' },
+]
+
+const news = [
+  ['1d59ee231f36b0cd.jpg', 'Health', 'Weight Loss with Fitness Health Club', 'Fitness at the hotel'],
+  ['9f8701f64da05366.jpg', 'Design', 'Retro Lighting Design in The Hotels', 'Hotel lighting'],
+  ['a67621c58fcfa4d1.jpg', 'Health', 'Benefits of Swimming for Your Health', 'Hotel swimming pool'],
+]
+
 const facilities = [
   ['✦', 'Pick Up & Drop', 'We’ll pick you up from the airport while you relax and enjoy a seamless arrival.'],
   ['P', 'Parking Space', 'Secure private parking is available for every guest throughout their stay.'],
@@ -171,6 +184,20 @@ function Testimonial() {
   return <section className="testimonial parallax"><div className="shade" /><div className="container testimonial-inner"><Reveal className="testimonial-copy"><p className="eyebrow light">Testimonials</p><h2>What Clients Say</h2><Stars /><p>“A beautiful retreat in the heart of New York. The room was immaculate, the team anticipated everything, and breakfast was worth lingering over.”</p><div className="guest"><img src={asset('221ea7b2a284e6ad.jpg')} alt="Nolan White" /><span><strong>Nolan White</strong><small>Guest review</small></span></div></Reveal></div></section>
 }
 
+function Experiences() {
+  return <section className="experiences section"><div className="container experience-grid">{experiences.map((item, index) => <ExperiencePair key={item.title} item={item} imageFirst={index % 2 === 0} />)}</div></section>
+}
+
+function ExperiencePair({ item, imageFirst }) {
+  const image = <Reveal as="img" src={asset(item.image)} alt={item.title} />
+  const copy = <Reveal className="experience-copy"><p className="eyebrow">{item.eyebrow}</p><h2>{item.title}</h2><p>{item.copy}</p><Link className="gold-btn" to="/contact">Learn More</Link></Reveal>
+  return <>{imageFirst ? image : copy}{imageFirst ? copy : image}</>
+}
+
+function News() {
+  return <section className="news section"><div className="container"><Reveal as="p" className="eyebrow">Hotel Blog</Reveal><Reveal as="h2" className="section-title">Our News</Reveal><div className="news-grid">{news.map(([image, category, title, alt]) => <Reveal as="article" className="news-card" key={title}><img src={asset(image)} alt={alt} /><time>Apr <b>25</b></time><div><small>{category}</small><h3>{title}</h3></div></Reveal>)}</div></div></section>
+}
+
 function BookingBand({ onSubmit }) {
   const today = new Date().toISOString().split('T')[0]
   return <section className="booking-band parallax"><div className="shade" /><div className="container booking-layout"><Reveal className="booking-promise"><Stars /><h2>Share your stay details and continue the booking directly with our team on WhatsApp.</h2><Reservation light /><p>✓ Fast confirmation on WhatsApp.</p></Reveal><Reveal as="form" className="booking-form availability-form" onSubmit={onSubmit}><p className="eyebrow">Rooms &amp; Suites</p><h2>Check Availability</h2><p className="form-intro">Required fields are marked with an asterisk.</p><div className="booking-form-grid"><label><span className="field-label">Guest name *</span><input required autoComplete="name" name="guestName" type="text" placeholder="Your full name" /></label><label><span className="field-label">WhatsApp number *</span><input required autoComplete="tel" inputMode="tel" name="phone" type="tel" pattern="[0-9+() -]{10,18}" placeholder="+91 98765 43210" /></label><label className="field-full"><span className="field-label">Room type *</span><select required name="room" defaultValue="Premium Deluxe Room">{rooms.map((room) => <option key={room.name}>{room.name}</option>)}</select></label><label><span className="field-label">Check-in date *</span><input required name="checkIn" type="date" min={today} /></label><label><span className="field-label">Check-out date *</span><input required name="checkOut" type="date" min={today} /></label><label><span className="field-label">Adults *</span><select required name="adults" defaultValue="2"><option value="1">1 Adult</option><option value="2">2 Adults</option><option value="3">3 Adults</option><option value="4">4 Adults</option></select></label><label><span className="field-label">Children</span><select name="children" defaultValue="0"><option value="0">No children</option><option value="1">1 Child</option><option value="2">2 Children</option><option value="3">3 Children</option></select></label><label><span className="field-label">Number of rooms *</span><select required name="roomCount" defaultValue="1 Room"><option>1 Room</option><option>2 Rooms</option><option>3 Rooms</option><option>4 Rooms</option></select></label><label><span className="field-label">Extra bed / person</span><select name="extraBed" defaultValue="No extra bed"><option>No extra bed</option><option>Extra bed / person (+₹300)</option></select></label><label className="field-full"><span className="field-label">Special requests</span><textarea name="specialRequests" rows="3" placeholder="Arrival time, accessibility needs or other requests" /></label></div><button type="submit">Check Availability on WhatsApp</button><p className="form-privacy">Your details are only used to respond to this booking enquiry.</p></Reveal></div></section>
@@ -194,7 +221,7 @@ function Footer() {
 }
 
 function HomePage({ onSubmit, openVideo }) {
-  return <><Hero onSubmit={onSubmit} /><About /><Rooms /><VideoBand openVideo={openVideo} /><Facilities /><Partners /></>
+  return <><Hero onSubmit={onSubmit} /><About /><Rooms /><Services /><VideoBand openVideo={openVideo} /><Facilities /><Testimonial /><Experiences /><News /><BookingBand onSubmit={onSubmit} /><Partners /></>
 }
 
 function AboutPage() {
