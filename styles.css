@@ -73,6 +73,25 @@ h1,h2,h3,h4,h5,h6{font-family:"Gilda Display",serif;font-weight:400;line-height:
 @media (max-width:650px){
   .container,.nav-shell{width:min(100% - 30px,var(--container))}.section{padding:75px 0}.section-title,.about-copy h2,.services-copy h2{font-size:36px}.eyebrow{letter-spacing:4px}.brand,.brand img{width:145px}.main-nav{inset:0 0 0 12%;padding:45px}.hero{height:820px;min-height:720px}.hero-copy{top:39%;width:90%}.hero-title{font-size:36px;letter-spacing:7px}.hero-dots{right:18px;top:41%}.quick-book{width:calc(100% - 30px);grid-template-columns:1fr;bottom:18px}.quick-book label{height:48px;border-right:0;border-bottom:1px solid #eee}.quick-book label:nth-of-type(3),.quick-book label:nth-of-type(4),.quick-book label:nth-of-type(5){display:none}.quick-book button{grid-column:auto;height:50px}.about-images{height:430px}.about-images img{height:73%;width:53%}.room-grid{grid-template-columns:1fr}.room-card,.room-card.room-wide{grid-column:auto;height:430px}.services-grid{grid-template-columns:1fr}.service-card>div{padding:28px}.parallax{background-attachment:scroll}.video-band{height:400px}.facility-grid{grid-template-columns:1fr}.facility{min-height:220px}.testimonial{min-height:590px;background-attachment:scroll;background-position:38% center}.testimonial-inner{min-height:590px;justify-content:flex-start}.testimonial-copy{width:100%;margin-left:0;padding:70px 0 50px}.testimonial-copy h2{font-size:30px}.testimonial-review{font-size:15px}.testimonial-mark{right:0;font-size:96px}.experience-grid{grid-template-columns:1fr}.experience-grid>img,.experience-copy{height:auto;min-height:320px}.experience-grid>img:nth-of-type(2){order:3}.news-grid{grid-template-columns:1fr}.news-card{height:470px}.news-card>img{height:400px}.booking-layout{grid-template-columns:1fr;padding:70px 0}.booking-promise{padding:0 10px}.booking-form{padding:30px}.partner-row{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr;gap:45px;padding:70px 0}.footer-grid>div:last-child{grid-column:auto}.to-top{right:16px;bottom:16px}.video-dialog button{right:0;top:-45px}
 }
+
+/* Full-screen mobile navigation */
+@media (max-width:900px){
+  body.menu-open{overflow:hidden;touch-action:none;overscroll-behavior:none}
+  .site-header.scrolled{animation:none;transform:none}
+  .menu-open .site-header,.menu-open .site-header.scrolled{position:fixed;background:transparent;box-shadow:none;transform:none}
+  .brand,.menu-toggle{position:relative;z-index:5}
+  .main-nav{z-index:4;inset:0;width:100%;height:100vh;height:100dvh;min-height:100vh;padding:calc(var(--nav-h) + 32px) 24px 48px;align-items:center;justify-content:center;gap:20px;overflow-y:auto;background:#1f1f1f;opacity:0;visibility:hidden;transform:translateX(100%);transition:transform .42s cubic-bezier(.77,0,.18,1),opacity .28s ease,visibility 0s linear .42s}
+  .main-nav.open{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+  .main-nav a,.scrolled .main-nav a{font-size:22px;letter-spacing:4px;line-height:1.35;color:#fff;opacity:0;transform:translateX(18px);transition:color .25s,opacity .3s ease,transform .3s ease}
+  .main-nav.open a{opacity:1;transform:none}
+  .main-nav.open a:nth-child(1){transition-delay:.14s}.main-nav.open a:nth-child(2){transition-delay:.18s}.main-nav.open a:nth-child(3){transition-delay:.22s}.main-nav.open a:nth-child(4){transition-delay:.26s}.main-nav.open a:nth-child(5){transition-delay:.3s}
+  .menu-open .brand-light{display:block}.menu-open .brand-dark{display:none}
+  .menu-open .menu-toggle span{background:#fff}
+}
+@media (max-width:650px){
+  .main-nav{inset:0;padding:calc(var(--nav-h) + 28px) 20px 42px}
+  .main-nav a,.scrolled .main-nav a{font-size:20px;letter-spacing:3px}
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}.hero-slide{transform:none}.parallax{background-attachment:scroll}}
 
 /* Client room tariffs */

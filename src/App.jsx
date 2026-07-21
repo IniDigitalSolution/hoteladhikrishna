@@ -290,6 +290,12 @@ function App() {
     return () => document.body.classList.remove('menu-open')
   }, [menuOpen])
   useEffect(() => {
+    if (!menuOpen) return undefined
+    const closeOnEscape = (event) => { if (event.key === 'Escape') setMenuOpen(false) }
+    document.addEventListener('keydown', closeOnEscape)
+    return () => document.removeEventListener('keydown', closeOnEscape)
+  }, [menuOpen])
+  useEffect(() => {
     if (!videoOpen) return undefined
     const onKeyDown = (event) => { if (event.key === 'Escape') setVideoOpen(false) }
     document.addEventListener('keydown', onKeyDown)
