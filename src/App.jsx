@@ -31,6 +31,12 @@ const news = [
   ['a67621c58fcfa4d1.jpg', 'Health', 'Benefits of Swimming for Your Health', 'Hotel swimming pool'],
 ]
 
+const testimonials = [
+  { name: 'Emily Brown', image: 'aaa9c9fc31fccec9.jpg', quote: 'From the moment we arrived, every detail felt effortless. The room was beautifully prepared, the service was warm, and the entire stay felt wonderfully calm.' },
+  { name: 'Nolan White', image: '221ea7b2a284e6ad.jpg', quote: 'A beautiful retreat in the heart of the city. The team anticipated everything, and breakfast was worth lingering over each morning.' },
+  { name: 'Sophia Lee', image: '92fadfc96147436c.jpg', quote: 'Elegant interiors, thoughtful hospitality and a peaceful atmosphere made this one of our most memorable hotel stays.' },
+]
+
 const facilities = [
   ['✦', 'Pick Up & Drop', 'We’ll pick you up from the airport while you relax and enjoy a seamless arrival.'],
   ['P', 'Parking Space', 'Secure private parking is available for every guest throughout their stay.'],
@@ -181,7 +187,37 @@ function Facilities() {
 }
 
 function Testimonial() {
-  return <section className="testimonial parallax"><div className="shade" /><div className="container testimonial-inner"><Reveal className="testimonial-copy"><p className="eyebrow light">Testimonials</p><h2>What Clients Say</h2><Stars /><p>“A beautiful retreat in the heart of New York. The room was immaculate, the team anticipated everything, and breakfast was worth lingering over.”</p><div className="guest"><img src={asset('221ea7b2a284e6ad.jpg')} alt="Nolan White" /><span><strong>Nolan White</strong><small>Guest review</small></span></div></Reveal></div></section>
+  const [activeReview, setActiveReview] = useState(0)
+  const [paused, setPaused] = useState(false)
+  useEffect(() => {
+    if (paused) return undefined
+    const timer = window.setInterval(() => setActiveReview((value) => (value + 1) % testimonials.length), 6200)
+    return () => window.clearInterval(timer)
+  }, [paused])
+  const review = testimonials[activeReview]
+  return (
+    <section className="testimonial" aria-label="Guest testimonials" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={() => setPaused(false)}>
+      <div className="shade" />
+      <div className="container testimonial-inner">
+        <Reveal className="testimonial-copy">
+          <p className="eyebrow light">Testimonials</p>
+          <h2>What Client&apos;s Say?</h2>
+          <span className="testimonial-line" />
+          <div className="testimonial-stage" key={review.name}>
+            <p className="testimonial-review">{review.quote}</p>
+            <span className="testimonial-mark" aria-hidden="true">”</span>
+            <div className="guest">
+              <img src={asset(review.image)} alt={review.name} />
+              <div className="guest-copy"><Stars /><strong>{review.name}</strong><small>Guest review</small></div>
+            </div>
+          </div>
+          <div className="testimonial-dots" aria-label="Choose a testimonial">
+            {testimonials.map((item, index) => <button type="button" key={item.name} className={index === activeReview ? 'active' : ''} aria-label={`Show review from ${item.name}`} aria-current={index === activeReview ? 'true' : undefined} onClick={() => setActiveReview(index)} />)}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  )
 }
 
 function Experiences() {
