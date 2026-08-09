@@ -164,7 +164,7 @@ function About() {
 
 function Rooms() {
   return (
-    <section className="rooms section"><div className="container"><Reveal as="p" className="eyebrow">Hotel Adhikrishna Arcade</Reveal><Reveal as="h2" className="section-title">Rooms &amp; Suites</Reveal><div className="room-grid">
+    <section className="rooms section"><div className="container"><Reveal as="p" className="eyebrow">Hotel Adhikrishna Arcade</Reveal><Reveal as="h2" className="section-title rooms-title">Our Rooms</Reveal><Reveal as="p" className="rooms-intro">Clean, air-conditioned rooms designed for a comfortable rest whether you&apos;re staying for one night or several days. Every room is maintained with fresh housekeeping and equipped with the essentials for a relaxed stay.</Reveal><div className="room-grid">
       {rooms.map((room) => <Reveal as="article" key={room.name} className={`room-card${room.wide ? ' room-wide' : ''}`}><img src={asset(room.image)} alt={room.name} /><a className="booking-ribbon" href={whatsappUrl(`Hello, I would like to check availability for the ${room.name}.`)} target="_blank" rel="noreferrer">WhatsApp</a><div className="room-info"><p>{room.price} / Night</p><h3>{room.name}</h3><span className="room-line" /><ul className="room-rate-list">{room.rates.map((rate) => <li key={rate}>{rate}</li>)}</ul><div className="room-more"><span>Extra person ₹300</span><a href={whatsappUrl(`Hello, I would like to book the ${room.name}.`)} target="_blank" rel="noreferrer">Enquire →</a></div></div></Reveal>)}
     </div><Reveal className="extra-person-note"><span>+</span><div><small>Available in every room</small><strong>Extra bed or extra person — ₹300</strong></div></Reveal></div></section>
   )
