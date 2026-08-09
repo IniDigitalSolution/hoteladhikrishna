@@ -48,6 +48,23 @@ const facilities = [
   ['i', 'Front Desk Assistance', 'Our front desk team is available to help with check-in, local information, or any request during your stay — whenever you need it.'],
 ]
 
+const aboutLocationReasons = [
+  'Travellers arriving in Erode by bus',
+  'Business visitors with appointments across the city',
+  'Families attending functions or visiting relatives',
+  'Short-stay and transit travellers',
+  'Anyone searching for a hotel near Erode Bus Stand',
+]
+
+const aboutStayEssentials = [
+  'Air-conditioned rooms',
+  'Wi-Fi connectivity',
+  'Parking for guests travelling by their own vehicle',
+  'Room service',
+  'Daily housekeeping',
+  'Front desk assistance, whenever it is needed',
+]
+
 const gallery = [
   ['a4a952754dc5ddb8.jpg', 'Premium Deluxe Room', 'Rooms'],
   ['7276943ee58ea5c6.jpg', 'Fine Dining', 'Restaurant'],
@@ -92,6 +109,22 @@ const navItems = [
   ['/gallery', 'Gallery'],
   ['/contact', 'Contact'],
 ]
+
+const defaultMeta = {
+  title: 'Hotel Near Erode Bus Stand | Hotel Adhikrishna Arcade',
+  description: 'Book Hotel Adhikrishna Arcade, a comfortable hotel near Erode Bus Stand with AC rooms, free Wi-Fi & parking. Ideal for business, family & transit stays.',
+}
+
+const pageMeta = {
+  '/about': {
+    title: 'About Us | Hotel Adhikrishna Arcade, Erode',
+    description: 'Learn about Hotel Adhikrishna Arcade, a comfortable hotel near Erode Bus Stand offering AC rooms and easy access for business, family & transit travellers.',
+  },
+  '/about-us': {
+    title: 'About Us | Hotel Adhikrishna Arcade, Erode',
+    description: 'Learn about Hotel Adhikrishna Arcade, a comfortable hotel near Erode Bus Stand offering AC rooms and easy access for business, family & transit travellers.',
+  },
+}
 
 function Header({ scrolled, menuOpen, setMenuOpen }) {
   const closeMenu = () => setMenuOpen(false)
@@ -156,9 +189,50 @@ function PageHero({ image, eyebrow = 'Hotel Adhikrishna Arcade', title }) {
 function About() {
   return (
     <section className="about section"><div className="container about-grid">
-      <Reveal className="about-copy"><p className="eyebrow">Hotel Adhikrishna Arcade</p><h2>Welcome to Hotel<br />Adhikrishna Arcade</h2><p>Whether you&apos;re arriving by bus, visiting Erode for business, attending a family function, or simply passing through, Hotel Adhikrishna Arcade offers a comfortable and convenient place to stay. Located on Nachiappa Road, close to Erode Bus Stand, we make it easy to settle in after your journey and get back on the road when it&apos;s time to leave.</p><p>Our air-conditioned rooms, reliable Wi-Fi, and attentive staff are designed around one simple idea — you take care of your reason for visiting Erode, and we take care of your stay.</p><Reservation label="Call to book" /></Reveal>
+      <Reveal className="about-copy"><p className="eyebrow">About Hotel Adhikrishna Arcade</p><h2>Comfortable Stay Near<br />Erode Bus Stand</h2><p>Hotel Adhikrishna Arcade is a city hotel in Erode built for travellers who want a stay that&apos;s easy to reach, comfortable, and hassle-free. Located close to Erode Bus Stand on Nachiappa Road, we&apos;re a practical choice whether you&apos;re arriving by bus, passing through Erode, or planning a longer visit for business, family, or personal reasons.</p><p>Every guest comes to Erode with a different purpose — a business meeting, a family function, a shopping trip, a temple visit, or simply an overnight halt before continuing onward. Hotel Adhikrishna Arcade is designed around these everyday travel needs, giving guests a comfortable base to return to at the end of a busy day.</p><Reservation label="Call to book" /></Reveal>
       <Reveal className="about-images"><img className="about-one" src={asset('7276943ee58ea5c6.jpg')} alt="Hotel Adhikrishna Arcade interior" /><img className="about-two" src={asset('eb57c837c55b214b.jpg')} alt="Air-conditioned hotel room" /></Reveal>
     </div></section>
+  )
+}
+
+function AboutDetails() {
+  return (
+    <section className="about-details section">
+      <div className="container about-details-grid">
+        <Reveal className="about-detail-copy">
+          <p className="eyebrow">Why Our Location Matters</p>
+          <h2>Easy Access for Every Kind of Traveller</h2>
+          <p>For anyone new to Erode, the distance between the bus stand and the hotel can make a real difference to how smooth a trip feels. Being close to Erode Bus Stand means our guests can settle in quickly after a journey, and get back to the bus stand without stress when it&apos;s time to leave.</p>
+          <ul className="about-check-list">
+            {aboutLocationReasons.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </Reveal>
+        <Reveal className="about-detail-copy">
+          <p className="eyebrow">Comfortable Rooms, Genuine Care</p>
+          <h2>Focused on What Actually Matters</h2>
+          <p>After a long journey or a full day of work, guests need a room where they can simply relax. Our air-conditioned rooms are kept clean and comfortable, and our team is on hand to help with quick check-in, local guidance around Erode, and everyday requests during the stay.</p>
+          <ul className="about-check-list">
+            {aboutStayEssentials.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+function AboutPromise() {
+  return (
+    <section className="about-promise">
+      <div className="container about-promise-inner">
+        <Reveal>
+          <p className="eyebrow light">Our Promise</p>
+          <h2>We keep the stay simple, dependable and comfortable.</h2>
+          <p>We don&apos;t believe in overselling. Our focus is on the basics that genuinely shape a guest&apos;s experience — an easy-to-find location, a comfortable room, dependable facilities, and a team that&apos;s ready to help.</p>
+          <p className="about-address">Hotel Adhikrishna Arcade, 27, Nachiappa Road, Erode, Tamil Nadu - 638001. Near Erode Bus Stand.</p>
+          <a className="outline-btn" href={`tel:${HOTEL_PHONE_LINK}`}>Call: {HOTEL_PHONE_DISPLAY}</a>
+        </Reveal>
+      </div>
+    </section>
   )
 }
 
@@ -167,16 +241,6 @@ function Rooms() {
     <section className="rooms section"><div className="container"><Reveal as="p" className="eyebrow">Hotel Adhikrishna Arcade</Reveal><Reveal as="h2" className="section-title rooms-title">Our Rooms</Reveal><Reveal as="p" className="rooms-intro">Clean, air-conditioned rooms designed for a comfortable rest whether you&apos;re staying for one night or several days. Every room is maintained with fresh housekeeping and equipped with the essentials for a relaxed stay.</Reveal><div className="room-grid">
       {rooms.map((room) => <Reveal as="article" key={room.name} className={`room-card${room.wide ? ' room-wide' : ''}`}><img src={asset(room.image)} alt={room.name} /><a className="booking-ribbon" href={whatsappUrl(`Hello, I would like to check availability for the ${room.name}.`)} target="_blank" rel="noreferrer">WhatsApp</a><div className="room-info"><p>{room.price} / Night</p><h3>{room.name}</h3><span className="room-line" /><ul className="room-rate-list">{room.rates.map((rate) => <li key={rate}>{rate}</li>)}</ul><div className="room-more"><span>Extra person ₹300</span><a href={whatsappUrl(`Hello, I would like to book the ${room.name}.`)} target="_blank" rel="noreferrer">Enquire →</a></div></div></Reveal>)}
     </div><Reveal className="extra-person-note"><span>+</span><div><small>Available in every room</small><strong>Extra bed or extra person — ₹300</strong></div></Reveal></div></section>
-  )
-}
-
-function ServiceCard({ image, title, price, period, alt }) {
-  return <Reveal className="service-card"><img src={asset(image)} alt={alt} /><div><h3>{title}</h3><p className="price"><b>{price}</b><small>/ {period}</small></p><ul><li>✓ Tailored to your stay</li><li>✓ Available on request</li><li className="muted">× Subject to availability</li></ul></div></Reveal>
-}
-
-function Services() {
-  return (
-    <section className="services section"><div className="container services-grid"><Reveal className="services-copy"><p className="eyebrow">Best Prices</p><h2>Extra Services</h2><p>Shape your stay around the moments that matter. From fresh flowers to private transfers, our team will arrange every detail.</p><p>Simply contact the concierge before your arrival or at any time during your stay.</p><Reservation label="For information" /></Reveal><ServiceCard image="a3f6cc9626e29a1c.jpg" title="Room cleaning" price="$50" period="stay" alt="Room cleaning service" /><ServiceCard image="7dc05d54cf9790b0.jpg" title="Drinks included" price="$30" period="daily" alt="Drinks included" /></div></section>
   )
 }
 
@@ -259,11 +323,11 @@ function Footer() {
 }
 
 function HomePage({ onSubmit, openVideo }) {
-  return <><Hero onSubmit={onSubmit} /><About /><Rooms /><Services /><VideoBand openVideo={openVideo} /><Facilities /><Testimonial /><Experiences /><News /><BookingBand onSubmit={onSubmit} /><Partners /></>
+  return <><Hero onSubmit={onSubmit} /><About /><Rooms /><VideoBand openVideo={openVideo} /><Facilities /><Testimonial /><Experiences /><News /><BookingBand onSubmit={onSubmit} /><Partners /></>
 }
 
 function AboutPage() {
-  return <><PageHero image="8f5554b86d1f86b3.jpg" eyebrow="Welcome to Hotel Adhikrishna Arcade" title="About Us" /><About /><Testimonial /><Facilities /><Partners /></>
+  return <><PageHero image="8f5554b86d1f86b3.jpg" eyebrow="Welcome to Hotel Adhikrishna Arcade" title="About Us" /><About /><AboutDetails /><AboutPromise /><Facilities /><Partners /></>
 }
 
 function RoomsPage({ onSubmit }) {
@@ -280,6 +344,12 @@ function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' })
     setMenuOpen(false)
+  }, [location.pathname])
+  useEffect(() => {
+    const meta = pageMeta[location.pathname] || defaultMeta
+    document.title = meta.title
+    const description = document.querySelector('meta[name="description"]')
+    if (description) description.setAttribute('content', meta.description)
   }, [location.pathname])
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 90)
@@ -348,7 +418,7 @@ function App() {
   return <>
     <a className="skip-link" href="#main">Skip to content</a>
     <Header scrolled={scrolled} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-    <main id="main"><Routes><Route path="/" element={<HomePage onSubmit={handleBookingSubmit} openVideo={() => setVideoOpen(true)} />} /><Route path="/about" element={<AboutPage />} /><Route path="/rooms" element={<RoomsPage onSubmit={handleBookingSubmit} />} /><Route path="/gallery" element={<GalleryPage onSubmit={handleBookingSubmit} />} /><Route path="/contact" element={<ContactPage onSubmit={handleContactSubmit} />} /><Route path="*" element={<HomePage onSubmit={handleBookingSubmit} openVideo={() => setVideoOpen(true)} />} /></Routes></main>
+    <main id="main"><Routes><Route path="/" element={<HomePage onSubmit={handleBookingSubmit} openVideo={() => setVideoOpen(true)} />} /><Route path="/about" element={<AboutPage />} /><Route path="/about-us" element={<AboutPage />} /><Route path="/rooms" element={<RoomsPage onSubmit={handleBookingSubmit} />} /><Route path="/gallery" element={<GalleryPage onSubmit={handleBookingSubmit} />} /><Route path="/contact" element={<ContactPage onSubmit={handleContactSubmit} />} /><Route path="*" element={<HomePage onSubmit={handleBookingSubmit} openVideo={() => setVideoOpen(true)} />} /></Routes></main>
     <Footer />
     <button className={`to-top${scrolled ? ' visible' : ''}`} type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>⌃</button>
     <div className={`toast${toast ? ' show' : ''}`} role="status" aria-live="polite">{toast || ''}</div>
