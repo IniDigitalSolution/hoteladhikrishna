@@ -126,6 +126,14 @@ const pageMeta = {
     title: 'Photo Gallery | Hotel Adhikrishna Arcade, Erode',
     description: 'Take a look inside Hotel Adhikrishna Arcade — photos of our AC rooms, facilities & hotel near Erode Bus Stand. See where you\'ll stay before you book.',
   },
+  '/contact': {
+    title: 'Contact Us | Hotel Adhikrishna Arcade, Erode',
+    description: 'Get in touch with Hotel Adhikrishna Arcade near Erode Bus Stand for room availability, bookings & enquiries. Call +91 73300 22277 or visit us',
+  },
+  '/contact-us': {
+    title: 'Contact Us | Hotel Adhikrishna Arcade, Erode',
+    description: 'Get in touch with Hotel Adhikrishna Arcade near Erode Bus Stand for room availability, bookings & enquiries. Call +91 73300 22277 or visit us',
+  },
 }
 
 function Header({ scrolled, menuOpen, setMenuOpen }) {
@@ -425,7 +433,7 @@ function App() {
   return <>
     <a className="skip-link" href="#main">Skip to content</a>
     <Header scrolled={scrolled} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-    <main id="main"><Routes><Route path="/" element={<HomePage onSubmit={handleBookingSubmit} openVideo={() => setVideoOpen(true)} />} /><Route path="/about" element={<AboutPage />} /><Route path="/about-us" element={<AboutPage />} /><Route path="/rooms" element={<RoomsPage onSubmit={handleBookingSubmit} />} /><Route path="/gallery" element={<GalleryPage onSubmit={handleBookingSubmit} />} /><Route path="/contact" element={<ContactPage onSubmit={handleContactSubmit} />} /><Route path="*" element={<HomePage onSubmit={handleBookingSubmit} openVideo={() => setVideoOpen(true)} />} /></Routes></main>
+    <main id="main"><Routes><Route path="/" element={<HomePage onSubmit={handleBookingSubmit} openVideo={() => setVideoOpen(true)} />} /><Route path="/about" element={<AboutPage />} /><Route path="/about-us" element={<AboutPage />} /><Route path="/rooms" element={<RoomsPage onSubmit={handleBookingSubmit} />} /><Route path="/gallery" element={<GalleryPage onSubmit={handleBookingSubmit} />} /><Route path="/contact" element={<ContactPage onSubmit={handleContactSubmit} />} /><Route path="/contact-us" element={<ContactPage onSubmit={handleContactSubmit} />} /><Route path="*" element={<HomePage onSubmit={handleBookingSubmit} openVideo={() => setVideoOpen(true)} />} /></Routes></main>
     <Footer />
     <button className={`to-top${scrolled ? ' visible' : ''}`} type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>⌃</button>
     <div className={`toast${toast ? ' show' : ''}`} role="status" aria-live="polite">{toast || ''}</div>
