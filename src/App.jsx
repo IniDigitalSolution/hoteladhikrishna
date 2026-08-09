@@ -132,7 +132,7 @@ function Header({ scrolled, menuOpen, setMenuOpen }) {
     <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-shell">
         <Link className="brand" to="/" aria-label="Hotel Adhikrishna Arcade home" onClick={closeMenu}>
-          <img className="brand-logo" src={asset('adhikrishna-arcade-logo.png')} alt="Hotel Adhikrishna Arcade Erode" />
+          <img className="brand-logo" src={asset(scrolled ? 'adhikrishna-arcade-logo.png' : 'adhikrishna-arcade-logo-white.png')} alt="Hotel Adhikrishna Arcade Erode" />
         </Link>
         <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}><span /><span /><span /></button>
         <nav className={`main-nav${menuOpen ? ' open' : ''}`} aria-label="Primary navigation">
@@ -318,7 +318,7 @@ function ContactPage({ onSubmit }) {
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container footer-grid"><div><img className="footer-logo" src={asset('adhikrishna-arcade-logo.png')} alt="Hotel Adhikrishna Arcade Erode" /><h3>About Hotel</h3><p>Hotel Adhikrishna Arcade is a comfortable city hotel near Erode Bus Stand, well suited to business travellers, families and transit guests.</p><button className="language" type="button">English &nbsp; ◉</button></div><div><h3>Explore</h3><nav aria-label="Footer">{navItems.map(([to, label]) => <Link key={to} to={to}>{label}</Link>)}</nav></div><div><h3>Contact</h3><p>Nachiappa Road, near Erode Bus Stand<br />Erode, Tamil Nadu</p><a className="footer-phone" href={`tel:${HOTEL_PHONE_LINK}`}>☎ {HOTEL_PHONE_DISPLAY}</a><div className="socials"><a href="#instagram" aria-label="Instagram">◎</a><a href="#twitter" aria-label="Twitter">𝕏</a><a href="#youtube" aria-label="YouTube">▶</a><a href="#facebook" aria-label="Facebook">f</a></div></div></div><div className="copyright">© Copyright {new Date().getFullYear()} by Hotel Adhikrishna Arcade</div></footer>
+  return <footer className="footer"><div className="container footer-grid"><div><img className="footer-logo" src={asset('adhikrishna-arcade-logo-white.png')} alt="Hotel Adhikrishna Arcade Erode" /><h3>About Hotel</h3><p>Hotel Adhikrishna Arcade is a comfortable city hotel near Erode Bus Stand, well suited to business travellers, families and transit guests.</p><button className="language" type="button">English &nbsp; ◉</button></div><div><h3>Explore</h3><nav aria-label="Footer">{navItems.map(([to, label]) => <Link key={to} to={to}>{label}</Link>)}</nav></div><div><h3>Contact</h3><p>Nachiappa Road, near Erode Bus Stand<br />Erode, Tamil Nadu</p><a className="footer-phone" href={`tel:${HOTEL_PHONE_LINK}`}>☎ {HOTEL_PHONE_DISPLAY}</a><div className="socials"><a href="#instagram" aria-label="Instagram">◎</a><a href="#twitter" aria-label="Twitter">𝕏</a><a href="#youtube" aria-label="YouTube">▶</a><a href="#facebook" aria-label="Facebook">f</a></div></div></div><div className="copyright">© Copyright {new Date().getFullYear()} by Hotel Adhikrishna Arcade</div></footer>
 }
 
 function HomePage({ onSubmit, openVideo }) {
