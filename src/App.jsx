@@ -24,9 +24,33 @@ const rooms = [
 ]
 
 const experiences = [
-  { image: 'restaurant-section.jpg', eyebrow: 'Discover', title: 'The Restaurant', copy: 'A refined dining room shaped around seasonal ingredients, warm service and relaxed evenings that are meant to linger.' },
-  { image: 'spa-section.jpg', eyebrow: 'Experiences', title: 'Spa Center', copy: 'Restore your rhythm with considered treatments, quiet spaces and personalised rituals designed for deep relaxation.' },
-  { image: 'fitness-section.jpg', eyebrow: 'Modern', title: 'Fitness Center', copy: 'Stay active during your visit with convenient access to comfort-focused facilities and everyday essentials.' },
+  {
+    image: 'restaurant-section.jpg',
+    eyebrow: 'Near Bus Stand',
+    title: 'Hotel in Erode Near Bus Stand | Hotel Adhikrishna Arcade',
+    copy: [
+      'Looking for a comfortable hotel in Erode near the bus stand? Hotel Adhikrishna Arcade offers spacious rooms, modern amenities and a convenient location in the heart of Erode City.',
+      'Enjoy easy access to Erode Bus Stand, Erode Railway Station, shopping areas and major business locations, making it an ideal stay for families, business travellers and visitors.',
+    ],
+  },
+  {
+    image: 'spa-section.jpg',
+    eyebrow: 'Near Railway Station',
+    title: 'Best Hotel Near Erode Railway Station | Hotel Adhikrishna Arcade',
+    copy: [
+      'Looking for the best hotel near Erode Railway Station? Hotel Adhikrishna Arcade offers comfortable AC rooms, free Wi-Fi, ample parking and modern facilities for a convenient stay in Erode.',
+      'Located just 7 minutes from Erode Railway Station, our hotel is an ideal choice for families, business travellers and visitors seeking easy access to Erode’s major destinations.',
+    ],
+  },
+  {
+    image: 'fitness-section.jpg',
+    eyebrow: 'Best Hotel in Erode',
+    title: 'Best Hotel in Erode | Hotel Adhikrishna Arcade',
+    copy: [
+      'Looking for the best hotel in Erode? Hotel Adhikrishna Arcade offers spacious, clean rooms with AC, free high-speed Wi-Fi, 24×7 room service, parking, power backup and modern facilities.',
+      'Located in the heart of Erode City, our hotel is ideal for families, business travellers and leisure guests, with easy access to Erode Railway Station, Bus Stand and major shopping areas.',
+    ],
+  },
 ]
 
 const testimonials = [
@@ -302,7 +326,8 @@ function Experiences() {
 
 function ExperiencePair({ item, imageFirst }) {
   const image = <Reveal as="img" src={asset(item.image)} alt={item.title} />
-  const copy = <Reveal className="experience-copy"><p className="eyebrow">{item.eyebrow}</p><h2>{item.title}</h2><p>{item.copy}</p><Link className="gold-btn" to="/contact">Learn More</Link></Reveal>
+  const copyBlocks = Array.isArray(item.copy) ? item.copy : [item.copy]
+  const copy = <Reveal className="experience-copy"><p className="eyebrow">{item.eyebrow}</p><h2>{item.title}</h2>{copyBlocks.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<Link className="gold-btn" to="/contact-us">Learn More</Link></Reveal>
   return <>{imageFirst ? image : copy}{imageFirst ? copy : image}</>
 }
 
