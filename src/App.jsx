@@ -7,6 +7,7 @@ const HOTEL_PHONE_LINK = '+917330022277'
 const HOTEL_PHONE_DISPLAY = '+91 73300 22277'
 const MAPS_URL = 'https://maps.app.goo.gl/JoCC5cogbFv8zFxE8'
 const MAPS_EMBED_URL = 'https://www.google.com/maps?q=Hotel%20Adhikrishna%20Arcade%2C%20Erode%2C%20Tamil%20Nadu&output=embed'
+const PROMO_VIDEO_URL = 'https://www.youtube.com/embed/mt0M7PtS8Zk?autoplay=1'
 const whatsappUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 
 const heroSlides = [
@@ -434,7 +435,7 @@ function App() {
     <Footer />
     <button className={`to-top${scrolled ? ' visible' : ''}`} type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>⌃</button>
     <div className={`toast${toast ? ' show' : ''}`} role="status" aria-live="polite">{toast || ''}</div>
-    {videoOpen && <div className="video-modal" onClick={(event) => { if (event.target === event.currentTarget) setVideoOpen(false) }}><div className="video-dialog"><button type="button" aria-label="Close video" onClick={() => setVideoOpen(false)}>×</button><iframe src="https://www.youtube.com/embed/7BGNAGahig8?autoplay=1" title="Hotel Adhikrishna Arcade promotional video" allow="autoplay; encrypted-media" allowFullScreen /></div></div>}
+    {videoOpen && <div className="video-modal" onClick={(event) => { if (event.target === event.currentTarget) setVideoOpen(false) }}><div className="video-dialog"><button type="button" aria-label="Close video" onClick={() => setVideoOpen(false)}>×</button><iframe src={PROMO_VIDEO_URL} title="Hotel Adhikrishna Arcade promotional video" allow="autoplay; encrypted-media" allowFullScreen /></div></div>}
   </>
 }
 
