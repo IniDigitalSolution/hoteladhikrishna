@@ -8,6 +8,7 @@ const HOTEL_PHONE_DISPLAY = '+91 73300 22277'
 const MAPS_URL = 'https://maps.app.goo.gl/JoCC5cogbFv8zFxE8'
 const MAPS_EMBED_URL = 'https://www.google.com/maps?q=Hotel%20Adhikrishna%20Arcade%2C%20Erode%2C%20Tamil%20Nadu&output=embed'
 const PROMO_VIDEO_URL = 'https://www.youtube.com/embed/mt0M7PtS8Zk?autoplay=1'
+const PROMO_VIDEO_THUMBNAIL = 'https://i.ytimg.com/vi/mt0M7PtS8Zk/maxresdefault.jpg'
 const whatsappUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 
 const heroSlides = [
@@ -279,7 +280,7 @@ function Rooms() {
 }
 
 function VideoBand({ openVideo }) {
-  return <section className="video-band parallax" aria-label="Promotional video"><div className="shade" /><Reveal className="video-copy"><p className="eyebrow light">Hotel Adhikrishna Arcade</p><h2>Promotional Video</h2><button className="play-button" type="button" aria-label="Play promotional video" onClick={openVideo}>▷</button></Reveal></section>
+  return <section className="video-band parallax" aria-label="Promotional video" style={{ '--video-preview': `url("${PROMO_VIDEO_THUMBNAIL}")` }}><div className="shade" /><Reveal className="video-copy"><p className="eyebrow light">Hotel Adhikrishna Arcade</p><h2>Promotional Video</h2><button className="play-button" type="button" aria-label="Play promotional video" onClick={openVideo}>▷</button></Reveal></section>
 }
 
 function Facilities() {
