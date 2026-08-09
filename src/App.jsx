@@ -27,12 +27,6 @@ const experiences = [
   { image: 'd3158d2fdaecfda2.jpg', eyebrow: 'Experiences', title: 'The Health Club & Pool', copy: 'Swim, reset and take time for yourself in our serene pool and private health club.' },
 ]
 
-const news = [
-  ['1d59ee231f36b0cd.jpg', 'Health', 'Weight Loss with Fitness Health Club', 'Fitness at the hotel'],
-  ['9f8701f64da05366.jpg', 'Design', 'Retro Lighting Design in The Hotels', 'Hotel lighting'],
-  ['a67621c58fcfa4d1.jpg', 'Health', 'Benefits of Swimming for Your Health', 'Hotel swimming pool'],
-]
-
 const testimonials = [
   { name: 'Emily Brown', image: 'aaa9c9fc31fccec9.jpg', quote: 'From the moment we arrived, every detail felt effortless. The room was beautifully prepared, the service was warm, and the entire stay felt wonderfully calm.' },
   { name: 'Nolan White', image: '221ea7b2a284e6ad.jpg', quote: 'A beautiful retreat in the heart of the city. The team anticipated everything, and breakfast was worth lingering over each morning.' },
@@ -295,10 +289,6 @@ function ExperiencePair({ item, imageFirst }) {
   return <>{imageFirst ? image : copy}{imageFirst ? copy : image}</>
 }
 
-function News() {
-  return <section className="news section"><div className="container"><Reveal as="p" className="eyebrow">Hotel Blog</Reveal><Reveal as="h2" className="section-title">Our News</Reveal><div className="news-grid">{news.map(([image, category, title, alt]) => <Reveal as="article" className="news-card" key={title}><img src={asset(image)} alt={alt} /><time>Apr <b>25</b></time><div><small>{category}</small><h3>{title}</h3></div></Reveal>)}</div></div></section>
-}
-
 function BookingBand({ onSubmit }) {
   const today = new Date().toISOString().split('T')[0]
   return <section className="booking-band parallax" id="availability"><div className="shade" /><div className="container booking-layout"><Reveal className="booking-promise"><Stars /><h2>Share your stay details and continue the booking directly with our team on WhatsApp.</h2><Reservation light /><p>✓ Fast confirmation on WhatsApp.</p></Reveal><Reveal as="form" className="booking-form availability-form" onSubmit={onSubmit}><p className="eyebrow">Rooms &amp; Suites</p><h2>Check Availability</h2><p className="form-intro">Required fields are marked with an asterisk.</p><div className="booking-form-grid"><label><span className="field-label">Guest name *</span><input required autoComplete="name" name="guestName" type="text" placeholder="Your full name" /></label><label><span className="field-label">WhatsApp number *</span><input required autoComplete="tel" inputMode="tel" name="phone" type="tel" pattern="[0-9+() -]{10,18}" placeholder="+91 98765 43210" /></label><label className="field-full"><span className="field-label">Room type *</span><select required name="room" defaultValue="Premium Deluxe Room">{rooms.map((room) => <option key={room.name}>{room.name}</option>)}</select></label><label><span className="field-label">Check-in date *</span><input required name="checkIn" type="date" min={today} /></label><label><span className="field-label">Check-out date *</span><input required name="checkOut" type="date" min={today} /></label><label><span className="field-label">Adults *</span><select required name="adults" defaultValue="2"><option value="1">1 Adult</option><option value="2">2 Adults</option><option value="3">3 Adults</option><option value="4">4 Adults</option></select></label><label><span className="field-label">Children</span><select name="children" defaultValue="0"><option value="0">No children</option><option value="1">1 Child</option><option value="2">2 Children</option><option value="3">3 Children</option></select></label><label><span className="field-label">Number of rooms *</span><select required name="roomCount" defaultValue="1 Room"><option>1 Room</option><option>2 Rooms</option><option>3 Rooms</option><option>4 Rooms</option></select></label><label><span className="field-label">Extra bed / person</span><select name="extraBed" defaultValue="No extra bed"><option>No extra bed</option><option>Extra bed / person (+₹300)</option></select></label><label className="field-full"><span className="field-label">Special requests</span><textarea name="specialRequests" rows="3" placeholder="Arrival time, accessibility needs or other requests" /></label></div><button type="submit">Check Availability on WhatsApp</button><p className="form-privacy">Your details are only used to respond to this booking enquiry.</p></Reveal></div></section>
@@ -314,7 +304,7 @@ function GalleryPage({ onSubmit }) {
 }
 
 function ContactPage({ onSubmit }) {
-  return <><PageHero image="77a362626ca38286.jpg" eyebrow="We’re Here for You" title="Contact" /><section className="contact-page section"><div className="container contact-layout"><Reveal className="contact-copy"><p className="eyebrow">Get in Touch</p><h2 className="section-title">Plan Your Stay</h2><p>Whether you’re visiting Erode for business, attending a family function, or simply passing through, our team will be happy to help with your stay.</p><div className="contact-detail"><span>☎</span><div><small>Reservation</small><a href={`tel:${HOTEL_PHONE_LINK}`}>{HOTEL_PHONE_DISPLAY}</a></div></div><div className="contact-detail"><span>⌖</span><div><small>Address</small><p>Nachiappa Road, near Erode Bus Stand, Erode, Tamil Nadu</p></div></div></Reveal><Reveal as="form" className="contact-form" onSubmit={onSubmit}><p className="eyebrow">Send a Message</p><h2>How can we help?</h2><div className="form-row"><label><span className="sr-only">Name</span><input required name="name" placeholder="Your Name *" /></label><label><span className="sr-only">Email</span><input required type="email" name="email" placeholder="Email Address *" /></label></div><div className="form-row"><label><span className="sr-only">Phone</span><input type="tel" name="phone" placeholder="Phone Number" /></label><label><span className="sr-only">Subject</span><input name="subject" placeholder="Subject" /></label></div><label><span className="sr-only">Message</span><textarea required name="message" rows="6" placeholder="Your Message *" /></label><button className="gold-btn" type="submit">Send Message</button></Reveal></div></section><section className="location-band"><div className="location-shade" /><Reveal><p className="eyebrow light">Nachiappa Road · Erode</p><h2>Close to Erode Bus Stand</h2><p>A convenient base for business, family and transit stays in Erode.</p><a className="outline-btn" href="https://maps.google.com/?q=Hotel+Adhikrishna+Arcade+Erode" target="_blank" rel="noreferrer">Get Directions</a></Reveal></section><Partners /></>
+  return <><PageHero image="77a362626ca38286.jpg" eyebrow="We’re Here for You" title="Contact" /><section className="contact-page section"><div className="container contact-layout"><Reveal className="contact-copy"><p className="eyebrow">Get in Touch</p><h2 className="section-title">Plan Your Stay</h2><p>Whether you’re visiting Erode for business, attending a family function, or simply passing through, our team will be happy to help with your stay.</p><div className="contact-detail"><span>☎</span><div><small>Reservation</small><a href={`tel:${HOTEL_PHONE_LINK}`}>{HOTEL_PHONE_DISPLAY}</a></div></div><div className="contact-detail"><span>⌖</span><div><small>Address</small><p>Nachiappa Road, near Erode Bus Stand, Erode, Tamil Nadu</p></div></div></Reveal><Reveal as="form" className="contact-form" onSubmit={onSubmit}><p className="eyebrow">WhatsApp Message</p><h2>How can we help?</h2><div className="form-row"><label><span className="sr-only">Name</span><input required name="name" placeholder="Your Name *" /></label><label><span className="sr-only">Email</span><input required type="email" name="email" placeholder="Email Address *" /></label></div><div className="form-row"><label><span className="sr-only">Phone</span><input type="tel" name="phone" placeholder="Phone Number" /></label><label><span className="sr-only">Subject</span><input name="subject" placeholder="Subject" /></label></div><label><span className="sr-only">Message</span><textarea required name="message" rows="6" placeholder="Your Message *" /></label><button className="gold-btn" type="submit">Send on WhatsApp</button></Reveal></div></section><section className="location-band"><div className="location-shade" /><Reveal><p className="eyebrow light">Nachiappa Road · Erode</p><h2>Close to Erode Bus Stand</h2><p>A convenient base for business, family and transit stays in Erode.</p><a className="outline-btn" href="https://maps.google.com/?q=Hotel+Adhikrishna+Arcade+Erode" target="_blank" rel="noreferrer">Get Directions</a></Reveal></section><Partners /></>
 }
 
 function Footer() {
@@ -322,7 +312,7 @@ function Footer() {
 }
 
 function HomePage({ onSubmit, openVideo }) {
-  return <><Hero onSubmit={onSubmit} /><About /><Rooms /><VideoBand openVideo={openVideo} /><Facilities /><Testimonial /><Experiences /><News /><BookingBand onSubmit={onSubmit} /><Partners /></>
+  return <><Hero onSubmit={onSubmit} /><About /><Rooms /><VideoBand openVideo={openVideo} /><Facilities /><Testimonial /><Experiences /><BookingBand onSubmit={onSubmit} /><Partners /></>
 }
 
 function AboutPage() {
@@ -410,8 +400,18 @@ function App() {
 
   const handleContactSubmit = (event) => {
     event.preventDefault()
+    const data = new FormData(event.currentTarget)
+    const message = [
+      'Hello, I would like to contact Hotel Adhikrishna Arcade.',
+      data.get('name') ? `Name: ${data.get('name')}` : '',
+      data.get('email') ? `Email: ${data.get('email')}` : '',
+      data.get('phone') ? `Phone: ${data.get('phone')}` : '',
+      data.get('subject') ? `Subject: ${data.get('subject')}` : '',
+      data.get('message') ? `Message: ${data.get('message')}` : '',
+    ].filter(Boolean).join('\n')
+    window.open(whatsappUrl(message), '_blank', 'noopener,noreferrer')
     event.currentTarget.reset()
-    showToast('Thank you. We’ll be in touch shortly.')
+    showToast('Opening your message in WhatsApp…')
   }
 
   return <>
