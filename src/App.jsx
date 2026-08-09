@@ -3,12 +3,14 @@ import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 
 const asset = (name) => `/assets/${name}`
 const WHATSAPP_NUMBER = '918551004444'
+const HOTEL_PHONE_LINK = '+917330022277'
+const HOTEL_PHONE_DISPLAY = '+91 73300 22277'
 const whatsappUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 
 const heroSlides = [
-  { image: '8f5554b86d1f86b3.jpg', kicker: 'The Ultimate Luxury Experience', title: ['Enjoy The Best', 'Moments of Life'] },
-  { image: 'd5ddf7bd1f02f424.jpg', kicker: 'Unique Place to Relax & Enjoy', title: ['The Perfect Base', 'For You'] },
-  { image: '77a362626ca38286.jpg', kicker: 'Luxury Hotel & Best Resort', title: ['Enjoy a Luxury', 'Experience'] },
+  { image: '8f5554b86d1f86b3.jpg', kicker: 'Hotel Adhikrishna Arcade', title: ['Comfortable Stay', 'Near Erode Bus Stand'] },
+  { image: 'd5ddf7bd1f02f424.jpg', kicker: 'Hotel Adhikrishna Arcade', title: ['Comfortable Stay', 'Near Erode Bus Stand'] },
+  { image: '77a362626ca38286.jpg', kicker: 'Hotel Adhikrishna Arcade', title: ['Comfortable Stay', 'Near Erode Bus Stand'] },
 ]
 
 const rooms = [
@@ -80,7 +82,7 @@ function Stars() {
 }
 
 function Reservation({ label = 'Reservation', light = false }) {
-  return <a className={`reservation-row${light ? ' light-row' : ''}`} href="tel:8551004444"><span>☎</span><span><small>{label}</small><strong>855 100 4444</strong></span></a>
+  return <a className={`reservation-row${light ? ' light-row' : ''}`} href={`tel:${HOTEL_PHONE_LINK}`}><span>☎</span><span><small>{label}</small><strong>{HOTEL_PHONE_DISPLAY}</strong></span></a>
 }
 
 const navItems = [
@@ -96,9 +98,9 @@ function Header({ scrolled, menuOpen, setMenuOpen }) {
   return (
     <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-shell">
-        <Link className="brand" to="/" aria-label="The Cappa home" onClick={closeMenu}>
-          <img className="brand-light" src={asset('1ec3fa339782fc07.png')} alt="The Cappa Luxury Hotel" />
-          <img className="brand-dark" src={asset('e2a859c5d3bd5c27.png')} alt="" aria-hidden="true" />
+        <Link className="brand" to="/" aria-label="Hotel Adhikrishna Arcade home" onClick={closeMenu}>
+          <span className="brand-name">Hotel Adhikrishna</span>
+          <span className="brand-subtitle">Arcade</span>
         </Link>
         <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}><span /><span /><span /></button>
         <nav className={`main-nav${menuOpen ? ' open' : ''}`} aria-label="Primary navigation">
@@ -131,18 +133,18 @@ function Hero({ onSubmit }) {
   }, [])
   const current = heroSlides[activeSlide]
   return (
-    <section className="hero" aria-label="Luxury hotel introduction">
+    <section className="hero" aria-label="Hotel Adhikrishna Arcade introduction">
       {heroSlides.map((slide, index) => <div key={slide.image} className={`hero-slide${activeSlide === index ? ' active' : ''}`} style={{ '--hero': `url('${asset(slide.image)}')` }} />)}
       <div className="hero-shade" />
-      <a className="side-reservation" href="tel:8551004444"><span className="phone-ring">☎</span><span className="vertical-copy"><b>Reservation</b> 855 100 4444</span></a>
-      <div className="hero-copy" key={activeSlide}><Stars /><p className="eyebrow hero-kicker">{current.kicker}</p><h1 className="hero-title">{current.title[0]}<br />{current.title[1]}</h1><Link className="outline-btn" to="/rooms">Rooms &amp; Suites</Link></div>
+      <a className="side-reservation" href={`tel:${HOTEL_PHONE_LINK}`}><span className="phone-ring">☎</span><span className="vertical-copy"><b>Call us</b> {HOTEL_PHONE_DISPLAY}</span></a>
+      <div className="hero-copy" key={activeSlide}><p className="eyebrow hero-kicker">{current.kicker}</p><h1 className="hero-title">{current.title[0]}<br />{current.title[1]}</h1><p className="hero-description">A convenient city hotel in Erode for business travellers, families, and anyone passing through — with easy access to Erode Bus Stand and everyday comforts that make your stay effortless.</p><div className="hero-actions"><a className="gold-btn" href="#availability">Book Now</a><a className="outline-btn" href={`tel:${HOTEL_PHONE_LINK}`}>Call: {HOTEL_PHONE_DISPLAY}</a></div></div>
       <div className="hero-dots" aria-label="Choose hero slide">{heroSlides.map((slide, index) => <button type="button" key={slide.image} className={activeSlide === index ? 'active' : ''} onClick={() => setActiveSlide(index)} aria-label={`Slide ${index + 1}`} />)}</div>
       <QuickBooking onSubmit={onSubmit} />
     </section>
   )
 }
 
-function PageHero({ image, eyebrow = 'The Cappa Luxury Hotel', title }) {
+function PageHero({ image, eyebrow = 'Hotel Adhikrishna Arcade', title }) {
   return (
     <section className="page-hero" style={{ '--page-image': `url('${asset(image)}')` }}>
       <div className="page-hero-shade" />
@@ -154,15 +156,15 @@ function PageHero({ image, eyebrow = 'The Cappa Luxury Hotel', title }) {
 function About() {
   return (
     <section className="about section"><div className="container about-grid">
-      <Reveal className="about-copy"><Stars /><p className="eyebrow">The Cappa Luxury Hotel</p><h2>Enjoy a Luxury<br />Experience</h2><p>Welcome to the best five-star deluxe hotel in New York. Every detail has been considered to create a calm, generous and deeply personal stay.</p><p>Set moments from Broadway, The Cappa brings timeless interiors, thoughtful service and the energy of the city together under one roof.</p><Reservation /></Reveal>
-      <Reveal className="about-images"><img className="about-one" src={asset('7276943ee58ea5c6.jpg')} alt="The Cappa restaurant interior" /><img className="about-two" src={asset('eb57c837c55b214b.jpg')} alt="Luxury bedroom interior" /></Reveal>
+      <Reveal className="about-copy"><p className="eyebrow">Hotel Adhikrishna Arcade</p><h2>Welcome to Hotel<br />Adhikrishna Arcade</h2><p>Whether you&apos;re arriving by bus, visiting Erode for business, attending a family function, or simply passing through, Hotel Adhikrishna Arcade offers a comfortable and convenient place to stay. Located on Nachiappa Road, close to Erode Bus Stand, we make it easy to settle in after your journey and get back on the road when it&apos;s time to leave.</p><p>Our air-conditioned rooms, reliable Wi-Fi, and attentive staff are designed around one simple idea — you take care of your reason for visiting Erode, and we take care of your stay.</p><Reservation label="Call to book" /></Reveal>
+      <Reveal className="about-images"><img className="about-one" src={asset('7276943ee58ea5c6.jpg')} alt="Hotel Adhikrishna Arcade interior" /><img className="about-two" src={asset('eb57c837c55b214b.jpg')} alt="Air-conditioned hotel room" /></Reveal>
     </div></section>
   )
 }
 
 function Rooms() {
   return (
-    <section className="rooms section"><div className="container"><Reveal as="p" className="eyebrow">The Cappa Luxury Hotel</Reveal><Reveal as="h2" className="section-title">Rooms &amp; Suites</Reveal><div className="room-grid">
+    <section className="rooms section"><div className="container"><Reveal as="p" className="eyebrow">Hotel Adhikrishna Arcade</Reveal><Reveal as="h2" className="section-title">Rooms &amp; Suites</Reveal><div className="room-grid">
       {rooms.map((room) => <Reveal as="article" key={room.name} className={`room-card${room.wide ? ' room-wide' : ''}`}><img src={asset(room.image)} alt={room.name} /><a className="booking-ribbon" href={whatsappUrl(`Hello, I would like to check availability for the ${room.name}.`)} target="_blank" rel="noreferrer">WhatsApp</a><div className="room-info"><p>{room.price} / Night</p><h3>{room.name}</h3><span className="room-line" /><ul className="room-rate-list">{room.rates.map((rate) => <li key={rate}>{rate}</li>)}</ul><div className="room-more"><span>Extra person ₹300</span><a href={whatsappUrl(`Hello, I would like to book the ${room.name}.`)} target="_blank" rel="noreferrer">Enquire →</a></div></div></Reveal>)}
     </div><Reveal className="extra-person-note"><span>+</span><div><small>Available in every room</small><strong>Extra bed or extra person — ₹300</strong></div></Reveal></div></section>
   )
@@ -179,7 +181,7 @@ function Services() {
 }
 
 function VideoBand({ openVideo }) {
-  return <section className="video-band parallax" aria-label="Promotional video"><div className="shade" /><Reveal className="video-copy"><p className="eyebrow light">The Cappa Luxury Hotel</p><h2>Promotional Video</h2><button className="play-button" type="button" aria-label="Play promotional video" onClick={openVideo}>▷</button></Reveal></section>
+  return <section className="video-band parallax" aria-label="Promotional video"><div className="shade" /><Reveal className="video-copy"><p className="eyebrow light">Hotel Adhikrishna Arcade</p><h2>Promotional Video</h2><button className="play-button" type="button" aria-label="Play promotional video" onClick={openVideo}>▷</button></Reveal></section>
 }
 
 function Facilities() {
@@ -236,7 +238,7 @@ function News() {
 
 function BookingBand({ onSubmit }) {
   const today = new Date().toISOString().split('T')[0]
-  return <section className="booking-band parallax"><div className="shade" /><div className="container booking-layout"><Reveal className="booking-promise"><Stars /><h2>Share your stay details and continue the booking directly with our team on WhatsApp.</h2><Reservation light /><p>✓ Fast confirmation on WhatsApp.</p></Reveal><Reveal as="form" className="booking-form availability-form" onSubmit={onSubmit}><p className="eyebrow">Rooms &amp; Suites</p><h2>Check Availability</h2><p className="form-intro">Required fields are marked with an asterisk.</p><div className="booking-form-grid"><label><span className="field-label">Guest name *</span><input required autoComplete="name" name="guestName" type="text" placeholder="Your full name" /></label><label><span className="field-label">WhatsApp number *</span><input required autoComplete="tel" inputMode="tel" name="phone" type="tel" pattern="[0-9+() -]{10,18}" placeholder="+91 98765 43210" /></label><label className="field-full"><span className="field-label">Room type *</span><select required name="room" defaultValue="Premium Deluxe Room">{rooms.map((room) => <option key={room.name}>{room.name}</option>)}</select></label><label><span className="field-label">Check-in date *</span><input required name="checkIn" type="date" min={today} /></label><label><span className="field-label">Check-out date *</span><input required name="checkOut" type="date" min={today} /></label><label><span className="field-label">Adults *</span><select required name="adults" defaultValue="2"><option value="1">1 Adult</option><option value="2">2 Adults</option><option value="3">3 Adults</option><option value="4">4 Adults</option></select></label><label><span className="field-label">Children</span><select name="children" defaultValue="0"><option value="0">No children</option><option value="1">1 Child</option><option value="2">2 Children</option><option value="3">3 Children</option></select></label><label><span className="field-label">Number of rooms *</span><select required name="roomCount" defaultValue="1 Room"><option>1 Room</option><option>2 Rooms</option><option>3 Rooms</option><option>4 Rooms</option></select></label><label><span className="field-label">Extra bed / person</span><select name="extraBed" defaultValue="No extra bed"><option>No extra bed</option><option>Extra bed / person (+₹300)</option></select></label><label className="field-full"><span className="field-label">Special requests</span><textarea name="specialRequests" rows="3" placeholder="Arrival time, accessibility needs or other requests" /></label></div><button type="submit">Check Availability on WhatsApp</button><p className="form-privacy">Your details are only used to respond to this booking enquiry.</p></Reveal></div></section>
+  return <section className="booking-band parallax" id="availability"><div className="shade" /><div className="container booking-layout"><Reveal className="booking-promise"><Stars /><h2>Share your stay details and continue the booking directly with our team on WhatsApp.</h2><Reservation light /><p>✓ Fast confirmation on WhatsApp.</p></Reveal><Reveal as="form" className="booking-form availability-form" onSubmit={onSubmit}><p className="eyebrow">Rooms &amp; Suites</p><h2>Check Availability</h2><p className="form-intro">Required fields are marked with an asterisk.</p><div className="booking-form-grid"><label><span className="field-label">Guest name *</span><input required autoComplete="name" name="guestName" type="text" placeholder="Your full name" /></label><label><span className="field-label">WhatsApp number *</span><input required autoComplete="tel" inputMode="tel" name="phone" type="tel" pattern="[0-9+() -]{10,18}" placeholder="+91 98765 43210" /></label><label className="field-full"><span className="field-label">Room type *</span><select required name="room" defaultValue="Premium Deluxe Room">{rooms.map((room) => <option key={room.name}>{room.name}</option>)}</select></label><label><span className="field-label">Check-in date *</span><input required name="checkIn" type="date" min={today} /></label><label><span className="field-label">Check-out date *</span><input required name="checkOut" type="date" min={today} /></label><label><span className="field-label">Adults *</span><select required name="adults" defaultValue="2"><option value="1">1 Adult</option><option value="2">2 Adults</option><option value="3">3 Adults</option><option value="4">4 Adults</option></select></label><label><span className="field-label">Children</span><select name="children" defaultValue="0"><option value="0">No children</option><option value="1">1 Child</option><option value="2">2 Children</option><option value="3">3 Children</option></select></label><label><span className="field-label">Number of rooms *</span><select required name="roomCount" defaultValue="1 Room"><option>1 Room</option><option>2 Rooms</option><option>3 Rooms</option><option>4 Rooms</option></select></label><label><span className="field-label">Extra bed / person</span><select name="extraBed" defaultValue="No extra bed"><option>No extra bed</option><option>Extra bed / person (+₹300)</option></select></label><label className="field-full"><span className="field-label">Special requests</span><textarea name="specialRequests" rows="3" placeholder="Arrival time, accessibility needs or other requests" /></label></div><button type="submit">Check Availability on WhatsApp</button><p className="form-privacy">Your details are only used to respond to this booking enquiry.</p></Reveal></div></section>
 }
 
 function Partners() {
@@ -245,15 +247,15 @@ function Partners() {
 }
 
 function GalleryPage({ onSubmit }) {
-  return <><PageHero image="d5ddf7bd1f02f424.jpg" eyebrow="A Glimpse Inside" title="Gallery" /><section className="gallery-page section"><div className="container"><Reveal className="gallery-intro"><p className="eyebrow">Discover The Cappa</p><h2 className="section-title">A Story in Every Detail</h2><p>Explore our rooms, dining spaces and restorative experiences before your arrival.</p></Reveal><div className="gallery-grid">{gallery.map(([image, title, category], index) => <Reveal as="figure" className={`gallery-item gallery-item-${index + 1}`} key={image}><img src={asset(image)} alt={title} /><figcaption><small>{category}</small><h3>{title}</h3></figcaption></Reveal>)}</div></div></section><BookingBand onSubmit={onSubmit} /><Partners /></>
+  return <><PageHero image="d5ddf7bd1f02f424.jpg" eyebrow="A Glimpse Inside" title="Gallery" /><section className="gallery-page section"><div className="container"><Reveal className="gallery-intro"><p className="eyebrow">Discover Hotel Adhikrishna Arcade</p><h2 className="section-title">A Story in Every Detail</h2><p>Explore our rooms and comfortable spaces before your arrival.</p></Reveal><div className="gallery-grid">{gallery.map(([image, title, category], index) => <Reveal as="figure" className={`gallery-item gallery-item-${index + 1}`} key={image}><img src={asset(image)} alt={title} /><figcaption><small>{category}</small><h3>{title}</h3></figcaption></Reveal>)}</div></div></section><BookingBand onSubmit={onSubmit} /><Partners /></>
 }
 
 function ContactPage({ onSubmit }) {
-  return <><PageHero image="77a362626ca38286.jpg" eyebrow="We’re Here for You" title="Contact" /><section className="contact-page section"><div className="container contact-layout"><Reveal className="contact-copy"><p className="eyebrow">Get in Touch</p><h2 className="section-title">Plan Your Stay</h2><p>Whether you’re arranging a weekend away, a private celebration or a longer New York stay, our reservations team will be delighted to help.</p><div className="contact-detail"><span>☎</span><div><small>Reservation</small><a href="tel:8551004444">855 100 4444</a></div></div><div className="contact-detail"><span>✉</span><div><small>Email</small><a href="mailto:info@luxuryhotel.com">info@luxuryhotel.com</a></div></div><div className="contact-detail"><span>⌖</span><div><small>Address</small><p>1616 Broadway, New York, NY 10001</p></div></div></Reveal><Reveal as="form" className="contact-form" onSubmit={onSubmit}><p className="eyebrow">Send a Message</p><h2>How can we help?</h2><div className="form-row"><label><span className="sr-only">Name</span><input required name="name" placeholder="Your Name *" /></label><label><span className="sr-only">Email</span><input required type="email" name="email" placeholder="Email Address *" /></label></div><div className="form-row"><label><span className="sr-only">Phone</span><input type="tel" name="phone" placeholder="Phone Number" /></label><label><span className="sr-only">Subject</span><input name="subject" placeholder="Subject" /></label></div><label><span className="sr-only">Message</span><textarea required name="message" rows="6" placeholder="Your Message *" /></label><button className="gold-btn" type="submit">Send Message</button></Reveal></div></section><section className="location-band"><div className="location-shade" /><Reveal><p className="eyebrow light">Times Square · New York</p><h2>In the Heart of the City</h2><p>Steps from Broadway, Central Park and the best of Manhattan.</p><a className="outline-btn" href="https://maps.google.com/?q=1616+Broadway+New+York" target="_blank" rel="noreferrer">Get Directions</a></Reveal></section><Partners /></>
+  return <><PageHero image="77a362626ca38286.jpg" eyebrow="We’re Here for You" title="Contact" /><section className="contact-page section"><div className="container contact-layout"><Reveal className="contact-copy"><p className="eyebrow">Get in Touch</p><h2 className="section-title">Plan Your Stay</h2><p>Whether you’re visiting Erode for business, attending a family function, or simply passing through, our team will be happy to help with your stay.</p><div className="contact-detail"><span>☎</span><div><small>Reservation</small><a href={`tel:${HOTEL_PHONE_LINK}`}>{HOTEL_PHONE_DISPLAY}</a></div></div><div className="contact-detail"><span>⌖</span><div><small>Address</small><p>Nachiappa Road, near Erode Bus Stand, Erode, Tamil Nadu</p></div></div></Reveal><Reveal as="form" className="contact-form" onSubmit={onSubmit}><p className="eyebrow">Send a Message</p><h2>How can we help?</h2><div className="form-row"><label><span className="sr-only">Name</span><input required name="name" placeholder="Your Name *" /></label><label><span className="sr-only">Email</span><input required type="email" name="email" placeholder="Email Address *" /></label></div><div className="form-row"><label><span className="sr-only">Phone</span><input type="tel" name="phone" placeholder="Phone Number" /></label><label><span className="sr-only">Subject</span><input name="subject" placeholder="Subject" /></label></div><label><span className="sr-only">Message</span><textarea required name="message" rows="6" placeholder="Your Message *" /></label><button className="gold-btn" type="submit">Send Message</button></Reveal></div></section><section className="location-band"><div className="location-shade" /><Reveal><p className="eyebrow light">Nachiappa Road · Erode</p><h2>Close to Erode Bus Stand</h2><p>A convenient base for business, family and transit stays in Erode.</p><a className="outline-btn" href="https://maps.google.com/?q=Hotel+Adhikrishna+Arcade+Erode" target="_blank" rel="noreferrer">Get Directions</a></Reveal></section><Partners /></>
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container footer-grid"><div><h3>About Hotel</h3><p>Welcome to The Cappa, a five-star hideaway in the heart of New York where considered design meets warm, intuitive service.</p><button className="language" type="button">English &nbsp; ◉</button></div><div><h3>Explore</h3><nav aria-label="Footer">{navItems.map(([to, label]) => <Link key={to} to={to}>{label}</Link>)}</nav></div><div><h3>Contact</h3><p>1616 Broadway, New York 10001<br />United States of America</p><a className="footer-phone" href="tel:8551004444">☎ 855 100 4444</a><a className="footer-email" href="mailto:info@luxuryhotel.com">info@luxuryhotel.com</a><div className="socials"><a href="#instagram" aria-label="Instagram">◎</a><a href="#twitter" aria-label="Twitter">𝕏</a><a href="#youtube" aria-label="YouTube">▶</a><a href="#facebook" aria-label="Facebook">f</a></div></div></div><div className="copyright">© Copyright {new Date().getFullYear()} by The Cappa</div></footer>
+  return <footer className="footer"><div className="container footer-grid"><div><h3>About Hotel</h3><p>Hotel Adhikrishna Arcade is a comfortable city hotel near Erode Bus Stand, well suited to business travellers, families and transit guests.</p><button className="language" type="button">English &nbsp; ◉</button></div><div><h3>Explore</h3><nav aria-label="Footer">{navItems.map(([to, label]) => <Link key={to} to={to}>{label}</Link>)}</nav></div><div><h3>Contact</h3><p>Nachiappa Road, near Erode Bus Stand<br />Erode, Tamil Nadu</p><a className="footer-phone" href={`tel:${HOTEL_PHONE_LINK}`}>☎ {HOTEL_PHONE_DISPLAY}</a><div className="socials"><a href="#instagram" aria-label="Instagram">◎</a><a href="#twitter" aria-label="Twitter">𝕏</a><a href="#youtube" aria-label="YouTube">▶</a><a href="#facebook" aria-label="Facebook">f</a></div></div></div><div className="copyright">© Copyright {new Date().getFullYear()} by Hotel Adhikrishna Arcade</div></footer>
 }
 
 function HomePage({ onSubmit, openVideo }) {
@@ -261,7 +263,7 @@ function HomePage({ onSubmit, openVideo }) {
 }
 
 function AboutPage() {
-  return <><PageHero image="8f5554b86d1f86b3.jpg" eyebrow="Welcome to The Cappa" title="About Us" /><About /><Testimonial /><Facilities /><Partners /></>
+  return <><PageHero image="8f5554b86d1f86b3.jpg" eyebrow="Welcome to Hotel Adhikrishna Arcade" title="About Us" /><About /><Testimonial /><Facilities /><Partners /></>
 }
 
 function RoomsPage({ onSubmit }) {
@@ -350,7 +352,7 @@ function App() {
     <Footer />
     <button className={`to-top${scrolled ? ' visible' : ''}`} type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>⌃</button>
     <div className={`toast${toast ? ' show' : ''}`} role="status" aria-live="polite">{toast || ''}</div>
-    {videoOpen && <div className="video-modal" onClick={(event) => { if (event.target === event.currentTarget) setVideoOpen(false) }}><div className="video-dialog"><button type="button" aria-label="Close video" onClick={() => setVideoOpen(false)}>×</button><iframe src="https://www.youtube.com/embed/7BGNAGahig8?autoplay=1" title="The Cappa promotional video" allow="autoplay; encrypted-media" allowFullScreen /></div></div>}
+    {videoOpen && <div className="video-modal" onClick={(event) => { if (event.target === event.currentTarget) setVideoOpen(false) }}><div className="video-dialog"><button type="button" aria-label="Close video" onClick={() => setVideoOpen(false)}>×</button><iframe src="https://www.youtube.com/embed/7BGNAGahig8?autoplay=1" title="Hotel Adhikrishna Arcade promotional video" allow="autoplay; encrypted-media" allowFullScreen /></div></div>}
   </>
 }
 
