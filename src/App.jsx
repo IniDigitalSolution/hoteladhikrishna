@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 
 const asset = (name) => `/assets/${name}`
-const WHATSAPP_NUMBER = '918551004444'
+const WHATSAPP_NUMBER = '917330022277'
 const HOTEL_PHONE_LINK = '+917330022277'
 const HOTEL_PHONE_DISPLAY = '+91 73300 22277'
 const whatsappUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
