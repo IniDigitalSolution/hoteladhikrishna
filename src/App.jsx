@@ -18,10 +18,10 @@ const heroSlides = [
 ]
 
 const rooms = [
-  { name: 'Premium Deluxe Room', price: '₹1,600 – ₹1,800', image: 'a4a952754dc5ddb8.jpg', rates: ['1 Person — ₹1,600', '2 Persons — ₹1,800'], wide: true },
-  { name: 'Premium Twin Room', price: '₹1,800', image: '64239565107bbe44.jpg', rates: ['Room tariff — ₹1,800'], wide: true },
-  { name: 'Suite Room', price: '₹2,000 – ₹2,400', image: '6297f281f42886fd.jpg', rates: ['1 Person — ₹2,000', '2 Persons — ₹2,400'], wide: true },
-  { name: 'Family Room', price: '₹3,000 – ₹3,500', image: '66ffbf3638e20af4.jpg', rates: ['3 Persons — ₹3,000', '4 Persons — ₹3,500'], wide: true },
+  { name: 'Premium Deluxe Room', price: '₹1,600 – ₹1,800', image: 'room-premium-deluxe.jpeg', rates: ['1 Person — ₹1,600', '2 Persons — ₹1,800'], wide: true },
+  { name: 'Premium Twin Room', price: '₹1,800', image: 'room-premium-twin.jpeg', rates: ['Room tariff — ₹1,800'], wide: true },
+  { name: 'Suite Room', price: '₹2,000 – ₹2,400', image: 'room-suite.jpeg', rates: ['1 Person — ₹2,000', '2 Persons — ₹2,400'], wide: true },
+  { name: 'Family Room', price: '₹3,000 – ₹3,500', image: 'room-family.jpeg', rates: ['3 Persons — ₹3,000', '4 Persons — ₹3,500'], wide: true },
 ]
 
 const experiences = [
@@ -87,14 +87,13 @@ const aboutStayEssentials = [
 ]
 
 const gallery = [
-  ['a4a952754dc5ddb8.jpg', 'Premium Deluxe Room', 'Rooms'],
-  ['7276943ee58ea5c6.jpg', 'Fine Dining', 'Restaurant'],
-  ['0b9e665057e0f9a6.jpg', 'The Restaurant', 'Dining'],
-  ['997ffe4320e77b69.jpg', 'Spa Rituals', 'Wellness'],
-  ['66ffbf3638e20af4.jpg', 'Family Room', 'Rooms'],
-  ['fitness-section.jpg', 'Fitness Center', 'Wellness'],
-  ['eb57c837c55b214b.jpg', 'Suite Room', 'Interiors'],
-  ['7dc05d54cf9790b0.jpg', 'Evening Service', 'Hospitality'],
+  ['room-premium-deluxe.jpeg', 'Premium Deluxe Room', 'Rooms'],
+  ['room-premium-twin.jpeg', 'Premium Twin Room', 'Rooms'],
+  ['room-suite.jpeg', 'Suite Room', 'Rooms'],
+  ['room-family.jpeg', 'Family Room', 'Rooms'],
+  ['gallery-best-hotel-erode-city.jpeg', 'Hotel Adhikrishna Arcade', 'Hotel'],
+  ['gallery-couple-friendly-hotels-erode.jpeg', 'Comfortable Stay in Erode', 'Rooms'],
+  ['gallery-hotels-erode-tamil-nadu.jpeg', 'Hotel Rooms in Erode', 'Rooms'],
 ]
 
 function Reveal({ children, className = '', as: Tag = 'div', ...props }) {
