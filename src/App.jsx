@@ -38,12 +38,12 @@ const testimonials = [
 ]
 
 const facilities = [
-  ['✦', 'Pick Up & Drop', 'We’ll pick you up from the airport while you relax and enjoy a seamless arrival.'],
-  ['P', 'Parking Space', 'Secure private parking is available for every guest throughout their stay.'],
-  ['♢', 'Room Service', 'Thoughtful in-room dining and attentive service are available around the clock.'],
-  ['≈', 'Swimming Pool', 'A serene heated pool provides an effortless place to unwind and recharge.'],
-  ['⌁', 'Fibre Internet', 'Fast, complimentary wireless internet keeps every room perfectly connected.'],
-  ['☕', 'Breakfast', 'Begin the day with fresh local produce, pastries and made-to-order favourites.'],
+  ['A/C', 'Air-Conditioned Rooms', 'Comfortable, well-maintained rooms to help you rest and recharge after a day of travel or work in Erode.'],
+  ['⌁', 'Wi-Fi Connectivity', 'Stay connected for work, calls, or everyday browsing with reliable Wi-Fi access throughout your stay.'],
+  ['P', 'Parking', 'Convenient on-site parking for guests travelling to Erode by their own vehicle.'],
+  ['◇', 'Room Service', 'Enjoy the convenience of room service, available to make your stay more comfortable without stepping out.'],
+  ['✦', 'Daily Housekeeping', 'Our housekeeping team ensures your room stays clean and fresh throughout your visit.'],
+  ['i', 'Front Desk Assistance', 'Our front desk team is available to help with check-in, local information, or any request during your stay — whenever you need it.'],
 ]
 
 const gallery = [
