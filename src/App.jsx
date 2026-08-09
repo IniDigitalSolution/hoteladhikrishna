@@ -26,8 +26,7 @@ const rooms = [
 const experiences = [
   { image: 'restaurant-section.jpg', eyebrow: 'Discover', title: 'The Restaurant', copy: 'A refined dining room shaped around seasonal ingredients, warm service and relaxed evenings that are meant to linger.' },
   { image: 'spa-section.jpg', eyebrow: 'Experiences', title: 'Spa Center', copy: 'Restore your rhythm with considered treatments, quiet spaces and personalised rituals designed for deep relaxation.' },
-  { image: 'a9f4d0e211e34fd2.jpg', eyebrow: 'Modern', title: 'Fitness Center', copy: 'A light-filled training space with modern equipment, available throughout your stay for effortless daily movement.' },
-  { image: 'd3158d2fdaecfda2.jpg', eyebrow: 'Experiences', title: 'The Health Club & Pool', copy: 'Swim, reset and take time for yourself in our serene pool and private health club.' },
+  { image: 'fitness-section.jpg', eyebrow: 'Modern', title: 'Fitness Center', copy: 'Stay active during your visit with convenient access to comfort-focused facilities and everyday essentials.' },
 ]
 
 const testimonials = [
@@ -68,8 +67,7 @@ const gallery = [
   ['0b9e665057e0f9a6.jpg', 'The Restaurant', 'Dining'],
   ['997ffe4320e77b69.jpg', 'Spa Rituals', 'Wellness'],
   ['66ffbf3638e20af4.jpg', 'Family Room', 'Rooms'],
-  ['a9f4d0e211e34fd2.jpg', 'Fitness Center', 'Wellness'],
-  ['d3158d2fdaecfda2.jpg', 'Health Club & Pool', 'Experiences'],
+  ['fitness-section.jpg', 'Fitness Center', 'Wellness'],
   ['eb57c837c55b214b.jpg', 'Suite Room', 'Interiors'],
   ['7dc05d54cf9790b0.jpg', 'Evening Service', 'Hospitality'],
 ]
