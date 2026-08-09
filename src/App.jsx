@@ -118,6 +118,14 @@ const pageMeta = {
     title: 'About Us | Hotel Adhikrishna Arcade, Erode',
     description: 'Learn about Hotel Adhikrishna Arcade, a comfortable hotel near Erode Bus Stand offering AC rooms and easy access for business, family & transit travellers.',
   },
+  '/rooms': {
+    title: 'Rooms & Rates | Hotel Adhikrishna Arcade, Erode',
+    description: 'Explore room categories and rates at Hotel Adhikrishna Arcade — comfortable AC rooms near Erode Bus Stand with Wi-Fi, room service & easy booking.',
+  },
+  '/gallery': {
+    title: 'Photo Gallery | Hotel Adhikrishna Arcade, Erode',
+    description: 'Take a look inside Hotel Adhikrishna Arcade — photos of our AC rooms, facilities & hotel near Erode Bus Stand. See where you\'ll stay before you book.',
+  },
 }
 
 function Header({ scrolled, menuOpen, setMenuOpen }) {
