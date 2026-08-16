@@ -101,6 +101,8 @@ const gallery = [
   ['gallery-hotel-rooms-bus-stand-area.jpeg', 'Room TV & Wardrobe Unit', 'Rooms'],
   ['gallery-deluxe-room-bus-stand.jpeg', 'Clean Attached Bathroom', 'Rooms'],
   ['gallery-affordable-price-hotel-room.jpeg', 'Modern Attached Bathroom', 'Rooms'],
+  ['gallery-adhikrishna-arcade.jpeg', 'Hotel Adhikrishna Arcade, Erode', 'Hotel'],
+  ['gallery-budget-hotel-railway-station.jpeg', 'Budget Hotel Near Erode Railway Station', 'Hotel'],
 ]
 
 function Reveal({ children, className = '', as: Tag = 'div', ...props }) {
