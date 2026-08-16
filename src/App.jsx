@@ -101,8 +101,8 @@ const gallery = [
   ['gallery-hotel-rooms-bus-stand-area.jpeg', 'Room TV & Wardrobe Unit', 'Rooms'],
   ['gallery-deluxe-room-bus-stand.jpeg', 'Clean Attached Bathroom', 'Rooms'],
   ['gallery-affordable-price-hotel-room.jpeg', 'Modern Attached Bathroom', 'Rooms'],
-  ['gallery-adhikrishna-arcade.jpeg', 'Hotel Adhikrishna Arcade, Erode', 'Hotel'],
-  ['gallery-budget-hotel-railway-station.jpeg', 'Budget Hotel Near Erode Railway Station', 'Hotel'],
+  ['gallery-adhikrishna-arcade.jpeg', 'Hotel Adhikrishna Arcade, Erode', 'Hotel', 'contain'],
+  ['gallery-budget-hotel-railway-station.jpeg', 'Budget Hotel Near Erode Railway Station', 'Hotel', 'contain'],
 ]
 
 function Reveal({ children, className = '', as: Tag = 'div', ...props }) {
@@ -346,7 +346,7 @@ function BookingBand({ onSubmit }) {
 }
 
 function GalleryPage({ onSubmit }) {
-  return <><PageHero image="d5ddf7bd1f02f424.jpg" eyebrow="A Glimpse Inside" title="Gallery" /><section className="gallery-page section"><div className="container"><Reveal className="gallery-intro"><p className="eyebrow">Discover Hotel Adhikrishna Arcade</p><h2 className="section-title">A Story in Every Detail</h2><p>Explore our rooms and comfortable spaces before your arrival.</p></Reveal><div className="gallery-grid">{gallery.map(([image, title, category]) => <Reveal as="figure" className="gallery-item" key={image}><img src={asset(image)} alt={title} /><figcaption><small>{category}</small><h3>{title}</h3></figcaption></Reveal>)}</div></div></section><BookingBand onSubmit={onSubmit} /></>
+  return <><PageHero image="d5ddf7bd1f02f424.jpg" eyebrow="A Glimpse Inside" title="Gallery" /><section className="gallery-page section"><div className="container"><Reveal className="gallery-intro"><p className="eyebrow">Discover Hotel Adhikrishna Arcade</p><h2 className="section-title">A Story in Every Detail</h2><p>Explore our rooms and comfortable spaces before your arrival.</p></Reveal><div className="gallery-grid">{gallery.map(([image, title, category, variant]) => <Reveal as="figure" className={`gallery-item${variant ? ` gallery-item-${variant}` : ''}`} key={image}><img src={asset(image)} alt={title} /><figcaption><small>{category}</small><h3>{title}</h3></figcaption></Reveal>)}</div></div></section><BookingBand onSubmit={onSubmit} /></>
 }
 
 function ContactPage({ onSubmit }) {
